@@ -1,4 +1,5 @@
 import React, { FC, PropsWithChildren, useEffect, useState } from "react";
+import { playerTemplate } from "../constants/playerTemplate";
 import { IPlayerState, Player } from "../interfaces/player.interface";
 
 const initialState = {} as IPlayerState;
@@ -6,7 +7,7 @@ const initialState = {} as IPlayerState;
 export const PlayerContext = React.createContext<IPlayerState>(initialState);
 
 export const PlayerProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
-  const [player, setPlayer] = useState<Player>();
+  const [player, setPlayer] = useState<Player>(playerTemplate);
 
   const getPlayer = () => {
     const player = localStorage.getItem("player");
